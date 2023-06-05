@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  max-width: 300px;
+}
+
+.container span {
+  margin: 10px 0;
+}
+.sign_form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign_form input {
+  margin-bottom: 20px;
+}
