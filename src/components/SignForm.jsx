@@ -1,10 +1,20 @@
 import { useEffect, useState } from "react";
 import style from "../styles/Signup.module.css";
+import { json, useNavigate } from "react-router-dom";
 
 export default function SignForm({ title, btnTestId }) {
+  const URL = "https://www.pre-onboarding-selection-task.shop/";
+  const navigate = useNavigate();
+
   const [btnStatus, setBtnStatus] = useState(true);
   const [emailVali, setEmailVali] = useState(false);
   const [passwordVali, setPasswordVali] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      navigate("/todo");
+    }
+  }, []);
 
   const validation = (e) => {
     if (e.target.id === "email") {
@@ -24,18 +34,56 @@ export default function SignForm({ title, btnTestId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title === "SignUp") {
-      console.log("test");
-    }
+    const [emailval, passwordval] = [
+      e.target.email.value,
+      e.target.password.value,
+    ];
+
+    if (title === "SignUp") signupReq(emailval, passwordval);
+    else if (title === "SignIn") signinReq(emailval, passwordval);
   };
 
+  const signupReq = (email, password) => {
+    fetch(URL + "auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }).then((response) => {
+      if (response.status === 201) navigate("/signin");
+    });
+  };
+
+  const signinReq = (email, password) => {
+    fetch(URL + "auth/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json.access_token);
+        localStorage.setItem("access_token", json.access_token);
+        navigate("/todo");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className={style.container} onSubmit={handleSubmit}>
       <span>{title}</span>
       <form className={style.sign_form}>
-        <label htmlFor="email">이메일</label>
+        <label htmlFor="email">email</label>
         <input id="email" data-testid="email-input" onChange={validation} />
-        <label htmlFor="password">비밀번호</label>
+        <label htmlFor="password">password</label>
         <input
           type="password"
           id="password"
