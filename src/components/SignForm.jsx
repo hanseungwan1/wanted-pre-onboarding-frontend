@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import style from "../styles/Signup.module.css";
+import style from "../styles/Sign.module.css";
 import { json, useNavigate } from "react-router-dom";
 
 export default function SignForm({ title, btnTestId }) {
@@ -11,9 +11,7 @@ export default function SignForm({ title, btnTestId }) {
   const [passwordVali, setPasswordVali] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("access_token")) {
-      navigate("/todo");
-    }
+    if (localStorage.getItem("access_token")) navigate("/todo");
   }, []);
 
   const validation = (e) => {
@@ -71,7 +69,6 @@ export default function SignForm({ title, btnTestId }) {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json.access_token);
         localStorage.setItem("access_token", json.access_token);
         navigate("/todo");
       })
