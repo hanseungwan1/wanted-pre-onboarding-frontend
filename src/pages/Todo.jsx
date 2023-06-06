@@ -72,6 +72,7 @@ export default function Todo() {
           setEditContent([...b]);
           return true;
         }
+        return false;
       });
       setList([...array]);
     });
@@ -133,7 +134,7 @@ export default function Todo() {
                 <button
                   data-testid="submit-button"
                   onClick={() => {
-                    updateHandler(el.id, editContent, el.isCompleted);
+                    updateHandler(el.id, editContent[i], el.isCompleted);
                     let a = [...isEdit];
                     a = a.map((el, index) => {
                       if (index === i) return false;
