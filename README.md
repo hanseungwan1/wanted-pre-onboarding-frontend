@@ -19,7 +19,7 @@
 ```
 
 ## 데모 영상
-![demo](https://github.com/hanseungwan1/wanted-pre-onboarding-frontend/assets/115906460/73811df5-2fda-4bc1-9e4d-9f64aba15928)
+![demo](https://github.com/hanseungwan1/wanted-pre-onboarding-frontend/assets/115906460/70f7d104-93b0-4c42-8c41-30b7a496ed78)
 ## 배포 링크
 ```
 https://gilded-croissant-f08e57.netlify.app
