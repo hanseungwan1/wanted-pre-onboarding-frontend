@@ -21,3 +21,6 @@
 ## 데모 영상
 
 ## 배포 링크
+```
+https://gilded-croissant-f08e57.netlify.app
+```
