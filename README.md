@@ -19,8 +19,7 @@
 ```
 
 ## 데모 영상
-![새_비디오_만들기_AdobeExpress](https://github.com/hanseungwan1/wanted-pre-onboarding-frontend/assets/115906460/4ec25005-745e-442f-a9a7-04cdf0c5f2d0)
-
+![demo](https://github.com/hanseungwan1/wanted-pre-onboarding-frontend/assets/115906460/73811df5-2fda-4bc1-9e4d-9f64aba15928)
 ## 배포 링크
 ```
 https://gilded-croissant-f08e57.netlify.app
