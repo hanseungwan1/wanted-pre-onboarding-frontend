@@ -6,15 +6,15 @@
 
 ## 프로젝트 실행 방법
 #### git clone
-```http
+```
   git clone https://github.com/hanseungwan1/wanted-pre-onboarding-frontend.git
 ```
 #### npm install
-```http
+```
  npm install
 ```
 #### npm start
-```http
+```
  npm start
 ```
 
