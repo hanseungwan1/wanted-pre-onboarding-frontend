@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "../styles/Sign.module.css";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SignForm({ title, btnTestId }) {
   const URL = "https://www.pre-onboarding-selection-task.shop/";
@@ -12,7 +12,7 @@ export default function SignForm({ title, btnTestId }) {
 
   useEffect(() => {
     if (localStorage.getItem("access_token")) navigate("/todo");
-  }, []);
+  }, [navigate]);
 
   const validation = (e) => {
     if (e.target.id === "email") {
